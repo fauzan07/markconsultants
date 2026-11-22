@@ -1,0 +1,9 @@
+@use '../styles/variables' as *;
+.item { border-bottom: 1px solid $line; }
+.item button { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; border: 0; padding: 18px 0; background: transparent; color: $navy; text-align: left; font-family: var(--font-poppins), sans-serif; font-size: 0.9rem; font-weight: 700; }
+.item button svg { flex: 0 0 auto; color: $blue; transition: transform $ease; }
+.open button svg { transform: rotate(180deg); }
+.answer { display: grid; grid-template-rows: 0fr; transition: grid-template-rows $ease-slow; }
+.answer p { overflow: hidden; margin: 0; color: $muted; font-size: 0.85rem; }
+.open .answer { grid-template-rows: 1fr; }
+.open .answer p { padding: 0 36px 18px 0; }

@@ -1,0 +1,203 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.container { @include container; }
+.section { position: relative; padding: 88px 0; }
+.sectionIntro { max-width: 650px; }
+.sectionIntro .eyebrow { @include eyebrow; }
+.eyebrow { @include eyebrow; }
+.sectionIntro h2 { margin: 14px 0 14px; color: $navy; font-family: var(--font-poppins), sans-serif; font-size: clamp(2rem, 5vw, 3.15rem); line-height: 1.12; letter-spacing: -0.065em; }
+.sectionIntro p { margin: 0; color: $muted; font-size: 0.98rem; }
+
+.hero { position: relative; min-height: 720px; display: flex; align-items: center; overflow: hidden; background: $navy; color: $white; }
+.heroImage { z-index: 0; object-fit: cover; object-position: 65% center; opacity: 0.38; }
+.heroOverlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba($navy-strong, 0.98) 0%, rgba($navy-strong, 0.88) 37%, rgba($navy-strong, 0.34) 75%, rgba($navy-strong, 0.54) 100%); }
+.heroGrid { position: absolute; inset: 0; z-index: 2; opacity: 0.16; background-image: linear-gradient(rgba($white, 0.18) 1px, transparent 1px), linear-gradient(90deg, rgba($white, 0.18) 1px, transparent 1px); background-size: 72px 72px; mask-image: linear-gradient(90deg, black, transparent 84%); }
+.heroInner { @include container; position: relative; z-index: 3; display: grid; align-items: center; gap: 60px; padding-top: 60px; padding-bottom: 60px; }
+.heroCopy { max-width: 700px; }
+.heroKicker { display: inline-flex; align-items: center; gap: 10px; color: rgba($white, 0.74); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.heroKicker i { width: 8px; height: 8px; border-radius: 50%; background: $teal; box-shadow: 0 0 0 5px rgba($teal, 0.14); }
+.hero h1 { max-width: 720px; margin: 22px 0 22px; color: $white; font-family: var(--font-poppins), sans-serif; font-size: clamp(3rem, 9vw, 5.8rem); line-height: 0.99; letter-spacing: -0.085em; }
+.hero h1 em { color: #70A0FF; font-style: normal; }
+.heroCopy > p { max-width: 580px; margin: 0; color: rgba($white, 0.73); font-size: clamp(1rem, 2vw, 1.15rem); }
+.heroActions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin-top: 32px; }
+.primaryButton, .lightButton, .outlineButton { display: inline-flex; align-items: center; justify-content: center; gap: 10px; border-radius: $radius-pill; padding: 14px 19px; font-size: 0.83rem; font-weight: 800; transition: transform $ease, background $ease, color $ease, border-color $ease; }
+.primaryButton { background: $blue; color: $white; box-shadow: 0 12px 26px rgba($blue, 0.22); }
+.primaryButton:hover { background: $white; color: $navy; transform: translateY(-3px); }
+.textButton { display: inline-flex; align-items: center; gap: 9px; color: rgba($white, 0.84); font-size: 0.84rem; font-weight: 700; }
+.textButton:hover { color: $white; }
+.textButton svg { color: $teal; }
+.trustRow { display: flex; flex-wrap: wrap; gap: 13px 24px; margin-top: 50px; color: rgba($white, 0.64); font-size: 0.72rem; }
+.trustRow span { display: inline-flex; align-items: center; gap: 6px; }
+.trustRow b { color: $white; font-size: 0.82rem; }
+.heroSignal { display: none; width: min(100%, 320px); justify-self: end; padding: 24px; border: 1px solid rgba($white, 0.18); border-radius: 22px; background: rgba($white, 0.08); backdrop-filter: blur(18px); box-shadow: $shadow-lg; transform: rotate(2deg); }
+.signalTop { display: flex; align-items: center; gap: 8px; color: rgba($white, 0.72); font-size: 0.72rem; font-weight: 700; }
+.statusDot { width: 7px; height: 7px; border-radius: 50%; background: $teal; box-shadow: 0 0 0 5px rgba($teal, 0.16); }
+.signalLine { display: flex; align-items: flex-end; justify-content: space-between; margin-top: 44px; color: $white; font-size: 0.8rem; }
+.signalLine b { font-family: var(--font-poppins), sans-serif; font-size: 2.2rem; letter-spacing: -0.08em; }
+.signalBar { height: 7px; margin-top: 11px; overflow: hidden; border-radius: $radius-pill; background: rgba($white, 0.15); }
+.signalBar i { display: block; width: 92%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, $blue, $teal); }
+.signalMeta { display: flex; justify-content: space-between; margin-top: 12px; color: rgba($white, 0.54); font-size: 0.68rem; }
+.scrollCue { position: absolute; right: 32px; bottom: 32px; z-index: 3; display: flex; align-items: center; gap: 10px; color: rgba($white, 0.56); font-size: 0.68rem; font-weight: 700; writing-mode: vertical-rl; transform: rotate(180deg); }
+.scrollCue svg { color: $teal; }
+
+.aboutSection { background: $white; }
+.aboutGrid { display: grid; gap: 55px; align-items: center; }
+.aboutVisual { position: relative; min-height: 390px; }
+.imageFrame { position: absolute; inset: 0 28px 32px 0; overflow: hidden; border-radius: 20px 20px 20px 5px; background: $surface-deep; box-shadow: $shadow-md; }
+.imageFrame img, .serviceImage img, .industriesVisual img { object-fit: cover; }
+.imageAccent { position: absolute; right: 0; bottom: 0; width: 76%; height: 62%; border: 1px solid rgba($blue, 0.3); border-radius: 18px; z-index: -1; }
+.experienceBadge { position: absolute; right: 0; bottom: 20px; display: flex; align-items: center; gap: 11px; padding: 14px 18px; border-radius: 13px; background: $navy; color: $white; box-shadow: $shadow-md; }
+.experienceBadge strong { color: $teal; font-family: var(--font-poppins), sans-serif; font-size: 2.4rem; line-height: 1; letter-spacing: -0.08em; }
+.experienceBadge span { color: rgba($white, 0.72); font-size: 0.69rem; font-weight: 600; line-height: 1.35; }
+.visualLabel { position: absolute; top: 30px; left: -10px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid rgba($line, 0.7); border-radius: $radius-pill; background: rgba($white, 0.9); color: $navy; font-size: 0.68rem; font-weight: 800; box-shadow: $shadow-sm; }
+.visualLabel svg { color: $teal; }
+.aboutContent > p { margin: 0 0 15px; color: $muted; font-size: 0.94rem; }
+.commitment { display: flex; align-items: flex-start; gap: 10px; margin-top: 24px; padding: 15px 16px; border-left: 3px solid $teal; background: $teal-soft; color: $navy; font-size: 0.86rem; }
+.commitment svg { flex: 0 0 auto; margin-top: 4px; color: $success; }
+
+.founderSection { background: $surface-deep; }
+.founderGrid { display: grid; gap: 42px; align-items: center; }
+.founderPortrait { position: relative; min-height: 430px; overflow: hidden; border-radius: 22px 22px 5px 22px; background: $white; box-shadow: $shadow-md; }
+.founderPortrait::after { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 62%, rgba($navy, 0.28)); content: ''; pointer-events: none; }
+.founderPortrait img { object-fit: cover; object-position: center top; }
+.founderStamp { position: absolute; right: 16px; bottom: 16px; z-index: 1; border: 1px solid rgba($white, 0.45); border-radius: 11px; padding: 8px 10px; background: rgba($navy, 0.8); color: $white; font-size: 0.58rem; font-weight: 800; letter-spacing: 0.16em; line-height: 1.35; text-align: center; }
+.founderCopy { max-width: 610px; }
+.founderCopy h2 { margin: 14px 0 15px; color: $navy; font-family: var(--font-poppins), sans-serif; font-size: clamp(2rem, 5vw, 3.25rem); line-height: 1.08; letter-spacing: -0.07em; }
+.founderCopy p { margin: 0 0 15px; color: $muted; font-size: 0.94rem; }
+.founderCopy .founderLead { color: $navy; font-family: var(--font-poppins), sans-serif; font-size: 1.08rem; font-weight: 700; letter-spacing: -0.035em; }
+.founderSignature { display: flex; align-items: center; gap: 13px; margin-top: 27px; }
+.signatureLine { width: 44px; height: 2px; background: $teal; }
+.founderSignature strong, .founderSignature span { display: block; }
+.founderSignature strong { color: $navy; font-family: var(--font-poppins), sans-serif; font-size: 0.86rem; }
+.founderSignature div span { margin-top: 2px; color: $muted; font-size: 0.7rem; }
+
+.visionSection { background: $surface; }
+.visionGrid { display: grid; gap: 18px; margin-top: 38px; }
+.visionCard { position: relative; overflow: hidden; padding: 28px; border: 1px solid $line; border-radius: $radius-md; background: $white; box-shadow: $shadow-sm; }
+.visionCard::after { position: absolute; right: -55px; bottom: -65px; width: 190px; height: 190px; border-radius: 50%; background: rgba($blue, 0.06); content: ''; }
+.missionCard::after { background: rgba($teal, 0.08); }
+.cardIcon { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 14px; background: $blue-soft; color: $blue; font-size: 1.25rem; }
+.missionCard .cardIcon { background: $teal-soft; color: $success; }
+.cardNumber { display: block; margin-top: 30px; color: $blue; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; }
+.visionCard h3 { margin: 8px 0 12px; color: $navy; font-family: var(--font-poppins), sans-serif; font-size: 1.45rem; letter-spacing: -0.05em; }
+.visionCard p, .visionCard li { color: $muted; font-size: 0.88rem; }
+.visionCard p { margin: 0 0 12px; }
+.visionCard ul { display: grid; gap: 7px; padding-left: 19px; margin: 16px 0 0; }
+.visionCard li::marker { color: $teal; }
+
+.servicesSection { background: $white; }
+.splitIntro { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; }
+.outlineButton { flex: 0 0 auto; border: 1px solid $line; color: $navy; }
+.outlineButton:hover { border-color: $blue; background: $blue-soft; color: $blue; transform: translateY(-2px); }
+.servicesGrid { display: grid; gap: 16px; margin-top: 42px; }
+.serviceCard { overflow: hidden; border: 1px solid $line; border-radius: $radius-md; background: $white; box-shadow: $shadow-sm; @include lift; }
+.serviceImage { position: relative; height: 190px; overflow: hidden; }
+.serviceImage img { transition: transform $ease-slow; }
+.serviceCard:hover .serviceImage img { transform: scale(1.06); }
+.serviceImage div { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba($navy, 0.68)); }
+.serviceBody { position: relative; padding: 21px 20px 22px; }
+.serviceIcon { display: grid; place-items: center; position: absolute; right: 18px; top: -25px; width: 50px; height: 50px; border: 5px solid $white; border-radius: 15px; background: $blue; color: $white; font-size: 1.1rem; }
+.serviceIndex { color: $blue; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.12em; }
+.serviceBody h3 { min-height: 48px; margin: 9px 0 10px; color: $navy; font-family: var(--font-poppins), sans-serif; font-size: 1.05rem; line-height: 1.2; letter-spacing: -0.045em; }
+.serviceBody p { min-height: 84px; margin: 0; color: $muted; font-size: 0.83rem; }
+.quoteButton { display: inline-flex; align-items: center; gap: 8px; margin-top: 19px; border: 0; border-bottom: 1px solid rgba($blue, 0.35); padding: 0 0 4px; background: transparent; color: $blue; font-size: 0.78rem; font-weight: 800; }
+.quoteButton:hover { border-color: $navy; color: $navy; }
+.featuredService { border-color: rgba($blue, 0.34); }
+.featuredService .serviceIcon { background: $teal; }
+
+.whySection { background: $surface; }
+.whyGrid { display: grid; gap: 44px; align-items: start; }
+.benefitGrid { display: grid; gap: 12px; }
+.benefit { display: flex; gap: 15px; padding: 15px 0; border-bottom: 1px solid $line; }
+.benefit > span { display: grid; place-items: center; flex: 0 0 auto; width: 38px; height: 38px; border-radius: 12px; background: $white; color: $blue; box-shadow: $shadow-sm; }
+.benefit h3 { margin: 0 0 3px; color: $navy; font-family: var(--font-poppins), sans-serif; font-size: 0.95rem; letter-spacing: -0.03em; }
+.benefit p { margin: 0; color: $muted; font-size: 0.8rem; }
+
+.stats { padding: 38px 0; background: $navy; color: $white; }
+.stats .container { display: grid; gap: 28px; }
+.statsIntro .eyebrow { color: rgba($white, 0.62); }
+.statsIntro p { margin: 13px 0 0; color: $white; font-family: var(--font-poppins), sans-serif; font-size: 1.12rem; font-weight: 700; letter-spacing: -0.04em; }
+.statList { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+.statList > div { display: grid; gap: 0; border-left: 1px solid rgba($white, 0.16); padding-left: 15px; }
+.statList strong { color: $teal; font-family: var(--font-poppins), sans-serif; font-size: 2rem; line-height: 1; letter-spacing: -0.07em; }
+.statList span { margin-top: 5px; color: rgba($white, 0.74); font-size: 0.75rem; font-weight: 700; }
+.statList small { display: block; color: rgba($white, 0.36); font-size: 0.58rem; font-weight: 500; }
+
+.industriesSection { background: $white; }
+.industriesGrid { display: grid; gap: 45px; align-items: center; }
+.industriesVisual { position: relative; min-height: 360px; overflow: hidden; border-radius: 22px 22px 5px 22px; background: $navy; box-shadow: $shadow-md; }
+.industriesVisual::after { position: absolute; inset: 0; background: linear-gradient(180deg, transparent, rgba($navy, 0.7)); content: ''; }
+.industriesTag { position: absolute; right: 16px; bottom: 16px; z-index: 1; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba($white, 0.23); border-radius: $radius-pill; padding: 8px 12px; background: rgba($navy, 0.62); color: $white; font-size: 0.7rem; font-weight: 700; backdrop-filter: blur(10px); }
+.industriesTag svg { color: $teal; }
+.industryPills { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 28px; }
+.industryPills span { display: inline-flex; align-items: center; gap: 6px; padding: 9px 11px; border: 1px solid $line; border-radius: $radius-pill; color: $navy; font-size: 0.75rem; font-weight: 700; }
+.industryPills svg { color: $teal; }
+.industryNote { margin: 26px 0 0; color: $muted; font-size: 0.87rem; }
+
+.processSection { background: $surface-deep; }
+.processGrid { display: grid; gap: 14px; margin-top: 38px; }
+.processStep { position: relative; padding: 20px; border-radius: $radius-md; background: $white; }
+.processNumber { display: block; color: $blue; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; }
+.processStep h3 { margin: 24px 0 6px; color: $navy; font-family: var(--font-poppins), sans-serif; font-size: 1.22rem; letter-spacing: -0.05em; }
+.processStep p { margin: 0; color: $muted; font-size: 0.82rem; }
+.processLine { display: none; }
+
+.testimonialsSection { background: $white; }
+.testimonialsHeader { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; }
+.sliderControls { display: flex; align-items: center; gap: 9px; color: $muted; font-size: 0.72rem; font-weight: 800; }
+.sliderControls button { display: grid; place-items: center; width: 35px; height: 35px; border: 1px solid $line; border-radius: 50%; background: $white; color: $navy; }
+.sliderControls button:hover { background: $blue; color: $white; }
+.sliderControls button:last-child svg { transform: rotate(180deg); }
+.testimonialCard { max-width: 830px; margin: 38px auto 0; padding: 35px 28px; border-radius: 22px; background: $navy; color: $white; box-shadow: $shadow-md; }
+.quoteMark { color: $teal; font-size: 1.4rem; }
+.testimonialCard blockquote { margin: 18px 0 26px; font-family: var(--font-poppins), sans-serif; font-size: clamp(1.25rem, 3vw, 1.9rem); line-height: 1.35; letter-spacing: -0.05em; }
+.testimonialCard div { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; color: $white; font-size: 0.75rem; }
+.testimonialCard div span { color: rgba($white, 0.55); }
+.testimonialCard div span::before { margin-right: 12px; content: '·'; }
+
+.faqSection { background: $surface; }
+.faqGrid { display: grid; gap: 45px; }
+
+.ctaBanner { position: relative; overflow: hidden; padding: 65px 0; background: $blue; color: $white; }
+.ctaBanner .container { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+.ctaBanner .eyebrow { color: rgba($white, 0.68); }
+.ctaBanner h2 { max-width: 650px; margin: 16px 0 0; font-family: var(--font-poppins), sans-serif; font-size: clamp(2rem, 5vw, 3.35rem); line-height: 1.08; letter-spacing: -0.07em; }
+.lightButton { flex: 0 0 auto; background: $white; color: $navy; }
+.lightButton:hover { background: $navy; color: $white; transform: translateY(-3px); }
+.ctaGlow { position: absolute; right: 8%; top: -220px; width: 520px; height: 520px; border: 1px solid rgba($white, 0.18); border-radius: 50%; box-shadow: 0 0 0 45px rgba($white, 0.03), 0 0 0 90px rgba($white, 0.03); }
+
+.contactSection { background: $white; }
+.contactGrid { display: grid; gap: 50px; align-items: start; }
+.contactFormCard { padding: 26px; border: 1px solid $line; border-radius: 22px; background: $surface; box-shadow: $shadow-sm; }
+.contactFormCard h2 { margin: 15px 0 9px; color: $navy; font-family: var(--font-poppins), sans-serif; font-size: clamp(1.75rem, 4vw, 2.45rem); line-height: 1.1; letter-spacing: -0.065em; }
+.contactFormCard > p { margin: 0 0 26px; color: $muted; font-size: 0.87rem; }
+.contactDetails > .sectionIntro h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
+.contactList { display: grid; gap: 18px; margin-top: 30px; }
+.contactList > a, .contactList > div { display: flex; align-items: flex-start; gap: 12px; }
+.contactList > a > span, .contactList > div > span { display: grid; place-items: center; flex: 0 0 auto; width: 38px; height: 38px; border-radius: 11px; background: $blue-soft; color: $blue; }
+.contactList small { display: block; color: $muted; font-size: 0.7rem; font-weight: 700; }
+.contactList strong { display: block; color: $navy; font-size: 0.86rem; }
+.contactList a:hover strong { color: $blue; }
+.mapWrap { position: relative; height: 240px; overflow: hidden; margin-top: 30px; border-radius: 17px; background: $surface-deep; }
+.mapWrap iframe { width: 100%; height: 100%; border: 0; filter: grayscale(0.9) saturate(0.7); }
+.mapNote { position: absolute; right: 10px; bottom: 10px; border: 1px solid rgba($white, 0.45); border-radius: $radius-pill; padding: 6px 9px; background: rgba($navy, 0.77); color: $white; font-size: 0.62rem; }
+
+.footer { padding: 60px 0 22px; background: $navy-strong; color: $white; }
+.footerTop { display: grid; gap: 35px; padding-bottom: 45px; }
+.footerBrand p { max-width: 240px; margin: 18px 0 22px; color: rgba($white, 0.55); font-size: 0.78rem; }
+.footerLogo { display: inline-flex; align-items: center; }
+.footerLogo img { width: 190px; height: 96px; object-fit: contain; object-position: left center; }
+.socials { display: flex; gap: 9px; }
+.socials a { display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid rgba($white, 0.16); border-radius: 50%; color: rgba($white, 0.72); }
+.socials a:hover { border-color: $teal; color: $teal; }
+.footerTop > div:not(.footerBrand) { display: grid; align-content: start; gap: 8px; }
+.footer h3 { margin: 0 0 7px; color: $teal; font-size: 0.72rem; letter-spacing: 0.11em; text-transform: uppercase; }
+.footerTop a:not(.footerLogo) { color: rgba($white, 0.6); font-size: 0.77rem; }
+.footerTop a:not(.footerLogo):hover { color: $white; }
+.footerBottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; border-top: 1px solid rgba($white, 0.12); padding-top: 18px; color: rgba($white, 0.4); font-size: 0.67rem; }
+
+@include at(xs) { .hero { min-height: 760px; } .heroInner { padding-top: 80px; padding-bottom: 85px; } .contactFormCard { padding: 32px; } }
+@include at(sm) { .section { padding: 110px 0; } .visionGrid { grid-template-columns: repeat(2, 1fr); } .founderGrid { grid-template-columns: 0.8fr 1.2fr; gap: 72px; } .founderPortrait { min-height: 520px; } .servicesGrid { grid-template-columns: repeat(2, 1fr); } .serviceCard:first-child { grid-column: span 2; } .serviceCard:first-child .serviceImage { height: 250px; } .whyGrid { grid-template-columns: 0.84fr 1.16fr; gap: 70px; } .stats .container { grid-template-columns: 0.7fr 1.3fr; align-items: center; } .statList { grid-template-columns: repeat(4, 1fr); } .industriesGrid { grid-template-columns: 0.95fr 1.05fr; } .processGrid { grid-template-columns: repeat(4, 1fr); gap: 0; } .processStep { border-radius: 0; border-right: 1px solid $line; } .processStep:first-child { border-radius: $radius-md 0 0 $radius-md; } .processStep:last-child { border-radius: 0 $radius-md $radius-md 0; border-right: 0; } .processLine { position: absolute; right: -6px; top: 30px; z-index: 1; display: block; width: 12px; height: 12px; border-top: 2px solid $teal; border-right: 2px solid $teal; transform: rotate(45deg); } .faqGrid { grid-template-columns: 0.78fr 1.22fr; gap: 70px; } .contactGrid { grid-template-columns: 1fr 0.9fr; } .footerTop { grid-template-columns: 1.4fr 0.7fr 1fr 0.85fr; } }
+@include at(md) { .heroInner { grid-template-columns: minmax(0, 1fr) 320px; } .heroSignal { display: block; } .aboutGrid { grid-template-columns: 0.9fr 1.1fr; gap: 90px; } .aboutVisual { min-height: 520px; } .imageFrame { inset: 0 42px 42px 0; } .servicesGrid { grid-template-columns: repeat(3, 1fr); } .serviceCard:first-child { grid-column: span 2; } .serviceCard:first-child .serviceImage { height: 190px; } .serviceCard:nth-child(4), .serviceCard:nth-child(5) { grid-column: span 1; } .contactFormCard { padding: 38px; } }
+@include at(lg) { .hero { min-height: 810px; } .heroInner { grid-template-columns: minmax(0, 1fr) 360px; } .hero h1 { font-size: 6.3rem; } .heroSignal { width: 360px; } .aboutGrid { gap: 120px; } }

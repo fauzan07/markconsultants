@@ -1,0 +1,21 @@
+@use '../styles/variables' as *;
+
+.form { display: grid; gap: 18px; }
+.formGrid { display: grid; gap: 16px; }
+.form label { display: grid; gap: 7px; color: $navy; font-size: 0.77rem; font-weight: 800; letter-spacing: 0.01em; }
+.form input:not([type='checkbox']), .form select, .form textarea { width: 100%; border: 1px solid $line; border-radius: 10px; padding: 12px 14px; background: $white; color: $ink; font-size: 0.88rem; font-weight: 500; outline: none; transition: border-color $ease, box-shadow $ease; }
+.form textarea { resize: vertical; min-height: 126px; }
+.form input::placeholder, .form textarea::placeholder { color: #99A8BA; }
+.form input:not([type='checkbox']):focus, .form select:focus, .form textarea:focus { border-color: $blue; box-shadow: 0 0 0 4px rgba($blue, 0.11); }
+.consent { display: flex !important; grid-template-columns: auto 1fr; align-items: flex-start; gap: 10px !important; color: $muted !important; font-size: 0.75rem !important; font-weight: 500 !important; line-height: 1.5; }
+.consent input { width: 16px; height: 16px; margin-top: 2px; accent-color: $blue; }
+.submit { display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: 0; border-radius: $radius-pill; padding: 14px 20px; background: $blue; color: $white; font-size: 0.86rem; font-weight: 800; box-shadow: 0 10px 24px rgba($blue, 0.2); transition: transform $ease, background $ease; }
+.submit:hover { background: $navy; transform: translateY(-2px); }
+.submit:disabled { cursor: wait; opacity: 0.72; }
+.status { display: flex; align-items: flex-start; gap: 8px; border-radius: 10px; padding: 11px 13px; font-size: 0.78rem; font-weight: 700; }
+.success { background: $teal-soft; color: $success; }
+.error { background: #FFF0F1; color: $danger; }
+.honeypot { position: absolute; left: -9999px; opacity: 0; }
+.spin { animation: spin 0.9s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (min-width: 560px) { .formGrid { grid-template-columns: 1fr 1fr; } }

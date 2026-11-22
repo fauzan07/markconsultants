@@ -1,0 +1,7 @@
+@use '../styles/variables' as *;
+.stack { position: fixed; right: 16px; bottom: 16px; z-index: 20; display: grid; gap: 9px; }
+.stack a { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; color: $white; box-shadow: $shadow-md; transition: transform $ease; }
+.stack a:hover { transform: translateY(-3px); }
+.whatsapp { background: #25D366; font-size: 1.35rem; }
+.call { background: $blue; font-size: 1rem; }
+.top { background: $navy; font-size: 1rem; }

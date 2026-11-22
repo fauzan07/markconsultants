@@ -1,0 +1,24 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.header { position: sticky; top: 0; z-index: 30; background: rgba($white, 0.94); backdrop-filter: blur(18px); border-bottom: 1px solid rgba($line, 0.8); }
+.topline { display: none; background: $navy; color: rgba($white, 0.76); font-size: 0.72rem; }
+.toplineInner { @include container; min-height: 32px; align-items: center; justify-content: space-between; }
+.topline a { display: inline-flex; align-items: center; gap: 6px; color: $white; font-weight: 700; }
+.navWrap { @include container; min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.brand { display: inline-flex; align-items: center; color: $navy; white-space: nowrap; }
+.brandLogo { width: 148px; height: 60px; object-fit: contain; object-position: left center; }
+.brandMark { position: relative; display: inline-block; width: 31px; height: 31px; border-radius: 10px; background: $navy; overflow: hidden; }
+.brandMark i { position: absolute; width: 14px; height: 3px; border-radius: 4px; background: $blue; transform: rotate(90deg); }
+.brandMark i:first-child { left: 7px; top: 14px; }
+.brandMark i:nth-child(2) { left: 14px; top: 14px; background: $teal; }
+.brandMark b { position: absolute; right: 5px; bottom: 5px; width: 5px; height: 5px; border-radius: 2px; background: $white; }
+.menuButton { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid $line; border-radius: 12px; background: $white; color: $navy; font-size: 1.2rem; }
+.nav { position: absolute; top: 72px; left: 0; right: 0; display: none; padding: 16px 20px 22px; background: $white; border-bottom: 1px solid $line; box-shadow: $shadow-md; }
+.navOpen { display: grid; gap: 4px; }
+.nav a { display: flex; align-items: center; justify-content: space-between; padding: 11px 2px; color: $muted; font-size: 0.88rem; font-weight: 600; }
+.nav a:hover { color: $navy; }
+.navCta { justify-content: center !important; gap: 8px; margin-top: 8px; padding: 13px 16px !important; border-radius: $radius-pill; background: $blue; color: $white !important; }
+@include at(sm) { .topline { display: block; } .toplineInner { display: flex; } .navWrap { min-height: 80px; } .nav { top: 112px; } }
+@include at(md) { .menuButton { display: none; } .nav { position: static; display: flex; align-items: center; gap: 22px; padding: 0; background: transparent; border: 0; box-shadow: none; } .nav a { padding: 5px 0; font-size: 0.8rem; } .navCta { margin-top: 0; padding: 10px 15px !important; } }
+@include at(lg) { .nav { gap: 28px; } .nav a { font-size: 0.84rem; } }
